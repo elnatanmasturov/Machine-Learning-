@@ -39,7 +39,7 @@ public class Board {
     public void calculateNeighbors() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                calculateNeighbors();
+                calculateNextGeneration();
                 int count = countLiveNeighbors(x, y);
                 grid[y][x].setLiveNeighbors(count);
             }
@@ -88,7 +88,7 @@ public class Board {
      * Advance the board to the next generation.
      */
     public void stepForward() {
-        calculateNextGeneration();
+        calculateNeighbors();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 Cell cell = grid[y][x];
